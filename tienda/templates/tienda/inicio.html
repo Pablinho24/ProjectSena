@@ -1,0 +1,71 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block titulo %}Inicio{% endblock %}
+
+{% block contenedor %}
+<h1 class="titul">Inicio</h1>
+<!--<div class="card mb-3 mt-5 w-100 ml-0 mr-0 mx-auto" style="max-width: 540px;">
+        {% for r in data %}
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src=" {{ r.foto.url }} " class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"> {{ r.nombre }} </h5>
+              <p class="card-text"></p>
+                {{ r.precio }}</br>
+                {{ r.categoria }}</br>
+            </p>
+
+            </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>-->
+<div class="btn-group" role="group" aria-label="Basic outlined example">
+    Categorias:
+    <div class="btn-group btn-group-lg" role="group" aria-label="Basic outlined example">
+        {% for c in cat %}
+        <a href="{% url 'inicio' %}?cat={{ c.id }}" type="button" class="btn btn-outline-success">{{ c.nombre }}</a>
+        {% endfor %}
+    </div>
+
+
+</div>
+<div class="mb-3 mt-5 w-100 h-100 ml-0 mr-2 mx-auto d-flex gap-5" style="max-width: 70%;">
+    {% for r in data %}
+    <div class="card" style="width: 18rem; justify-content: space-between;">
+        <img src="{{ r.foto.url }}" class="card img top" alt="..." height="150p">
+        <h5 class="card-title"> Nombre: {{ r.nombre }}</h5>
+        <p class="card-text"> Precio: {{ r.precio }}</p>
+        <p class="card-text"> Categoria: {{ r.categoria }}</p>
+        <p class="card-text"> Existencias: {{ r.inventario }}</p>
+        <form class="d-flex">
+            <input class="form-control me-2" type="number" placeholder="" aria-label="">
+            <button class="btn btn-outline-success" type="submit">Agregar</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
+
+
+<!--
+    <p>
+        Datos de la sesión:
+        <br>
+        ID: {{ request.session.logueo.id }}<br>
+        Nombre: {{ request.session.logueo.nombre }}<br>
+        ROL: {{ request.session.logueo.nombre_rol }}<br>
+        <a class="btn btn-success" href="{% url 'logout' %}">Cerrar sesión</a>
+    </p>
+    <p class="card-text">
+                <small class="text-body-secondary">
+                    Id de Usuario: {{ data.id }}
+                </small>
+-->
